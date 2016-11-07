@@ -1,0 +1,12 @@
+﻿.myFooterText {
+    font-family:'Poor Richard';
+}
+
+#background-home{
+    background-image: url(../Content/Images/music-equalizer.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
