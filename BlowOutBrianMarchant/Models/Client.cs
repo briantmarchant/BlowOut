@@ -52,7 +52,7 @@ namespace BlowOutBrianMarchant.Models
 
         [Required(ErrorMessage = "Please enter a phone number")]
         [DisplayName("Phone Number")]
-        [RegularExpression ("/^(d{3}) d{3}-d{4}$/", ErrorMessage = "Phone number needs to be in this format (XXX) XXX-XXXX")]
+        [RegularExpression(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}", ErrorMessage = "Correct format for phone number is (XXX) XXX-XXXX")]
         public string ClientPhone { get; set; }
     }
 }
