@@ -10,3 +10,20 @@
     color: black;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
+
+#bieberquote{
+    font-size: 20px;
+    font-family: 'Sitka Heading';
+    font-style: italic;
+}
+#brian{
+    height: 200px;
+
+}
+#instrumentImage{
+    max-width: 100%;
+}
+.instrumentType{
+    height: 300px;
+    padding-top: 150px;
+}

@@ -11,129 +11,107 @@ using BlowOutBrianMarchant.Models;
 
 namespace BlowOutBrianMarchant.Controllers
 {
-    public class ClientsController : Controller
+    public class InstrumentsController : Controller
     {
         private BlowOutContext db = new BlowOutContext();
 
-        // GET: Clients
+        // GET: Instruments
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            return View(db.Instruments.ToList());
         }
 
-        // GET: Clients/Details/5
+        // GET: Instruments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Instrument instrument = db.Instruments.Find(id);
+            if (instrument == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(instrument);
         }
 
-        // GET: Clients/Details/5
-        public ActionResult ModalDetails(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
-        }
-
-        // GET: Clients/Create
+        // GET: Instruments/Create
         public ActionResult Create()
         {
-            ViewBag.States = db.States.ToList();
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: Instruments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientID,ClientFirstName,ClientLastName,ClientAddress,ClientCity,ClientStateID,ClientZip,ClientEmail,ClientPhone")] Client client)
+        public ActionResult Create([Bind(Include = "InstrumentID,InstrumentDescription,InstrumentCondition,InstrumentPrice,ClientID")] Instrument instrument)
         {
             if (ModelState.IsValid)
             {
-                db.Clients.Add(client);
+                db.Instruments.Add(instrument);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(client);
+            return View(instrument);
         }
 
-        // GET: Clients/Edit/5
+        // GET: Instruments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Instrument instrument = db.Instruments.Find(id);
+            if (instrument == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.States = db.States.ToList();
-            return View(client);
+            return View(instrument);
         }
 
-        // POST: Clients/Edit/5
+        // POST: Instruments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientID,ClientFirstName,ClientLastName,ClientAddress,ClientCity,ClientStateID,ClientZip,ClientEmail,ClientPhone")] Client client)
+        public ActionResult Edit([Bind(Include = "InstrumentID,InstrumentDescription,InstrumentCondition,InstrumentPrice,ClientID")] Instrument instrument)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                db.Entry(instrument).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(client);
+            return View(instrument);
         }
 
-        // GET: Clients/Delete/5
+        // GET: Instruments/Delete/5
         public ActionResult Delete(int? id)
         {
-            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Instrument instrument = db.Instruments.Find(id);
+            if (instrument == null)
             {
                 return HttpNotFound();
             }
-
-            ViewBag.Name = client.ClientFirstName + " " + client.ClientLastName;
-            ViewBag.ID  = "client ID(" + client.ClientID + ")";
-
-            return View(client);
+            return View(instrument);
         }
 
-        // POST: Clients/Delete/5
+        // POST: Instruments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            Instrument instrument = db.Instruments.Find(id);
+            db.Instruments.Remove(instrument);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

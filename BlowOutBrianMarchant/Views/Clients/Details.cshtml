@@ -4,79 +4,91 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Client Details</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientFirstName)
+                    </dt>
 
-<div>
-    <h4>Client</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientFirstName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientFirstName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientFirstName)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientLastName)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientLastName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientLastName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientLastName)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientAddress)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientAddress)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientAddress)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientAddress)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientCity)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientCity)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientCity)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientCity)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientStateID)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientState)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientStateID)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientState)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientZip)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientZip)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientZip)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientZip)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientEmail)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientEmail)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientEmail)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientEmail)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClientPhone)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientPhone)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientPhone)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientPhone)
-        </dd>
-
-    </dl>
+                </dl>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+
+

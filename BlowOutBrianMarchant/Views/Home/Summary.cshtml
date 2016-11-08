@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BlowOutBrianMarchant.Models.Instrument>
+@{
+    ViewBag.Title = "Summary";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>Thank You!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <p>Thank you @ViewBag.Client.ClientFirstName @ViewBag.Client.ClientLastName for your rental of a @ViewBag.Instrument.InstrumentCondition 
+            @ViewBag.Instrument.InstrumentDescription.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th>
+                        Order ID
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InstrumentDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InstrumentCondition)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InstrumentPrice) Per Month
+                    </th>
+                    
+                    <th>
+                        Total Payment (18 Month Rental)
+                    </th>
+                </tr>
+                    <tr>
+                        <td>
+                            @ViewBag.Instrument.ClientID
+                        </td>
+                        <td>
+                            @ViewBag.Instrument.InstrumentDescription
+                        </td>
+                        <td>
+                            @ViewBag.Instrument.InstrumentCondition
+                        </td>
+                        <td>
+                            $@ViewBag.Instrument.InstrumentPrice
+                        </td>
+                        <td>
+                            $@ViewBag.TotalRental
+                        </td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+</div>

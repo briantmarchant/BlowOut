@@ -1,0 +1,76 @@
+﻿@model IEnumerable<BlowOutBrianMarchant.Models.Instrument>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Instrument Index</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InstrumentDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InstrumentCondition)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InstrumentPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClientID)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InstrumentDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InstrumentCondition)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InstrumentPrice)
+                        </td>
+                        <td>
+                            <a data-toggle="modal" data-target="#myModal" href="@Url.Action("ModalDetails", "Clients", new { id = item.ClientID }, null)">
+                                @Html.DisplayFor(modelItem => item.ClientID)
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.InstrumentID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.InstrumentID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.InstrumentID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

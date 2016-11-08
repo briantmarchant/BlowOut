@@ -16,7 +16,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Rentals", "Index", "Rentals")</li>
+                    <li>@Html.ActionLink("Rentals", "Rentals", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -29,11 +29,19 @@
             <div class="col-md-12">
                 <h1>BlowOut Instrument Rentals</h1>
                 <p class="lead">We blow our competitors out of the water</p>
-                <p>Check out our instrument <a href="@Url.Action("Index", "Rentals")" style="text-shadow:none;" class="btn btn-primary btn-lg">Rentals &raquo;</a></p>
+                <p>Check out our instrument <a href="@Url.Action("Rentals", "Home")" style="text-shadow:none;" class="btn btn-primary btn-lg">Rentals &raquo;</a></p>
             </div>
         </div>
     </div>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p id="bieberquote">
+                    “I play drums and guitar. My best instrument is definitely drums, so I’m featured a lot on the album drumming.
+                    It’s pretty futuristic as well.” — Justin Bieber
+                </p>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <h2>Quality Products</h2>
@@ -46,12 +54,13 @@
             <div class="col-md-4">
                 <h2>Unmatched Service</h2>
                 <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-                <p><a style="text-shadow: none;" class="btn btn-danger" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+                <p><a style="text-shadow: none;" class="btn btn-danger" href="#">Learn more &raquo;</a></p>
             </div>
             <div class="col-md-4">
-                <h2></h2>
-                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-                <p><a style="text-shadow: none;" class="btn btn-warning" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                <h2>Provo Music Scene</h2>
+                <p>Provo is a musical place. The local music scene is always poppin. Here at BlowOut we support Provo's musicians from the start of
+                their careers til they are world known rockstars.</p>
+                <p><a style="text-shadow: none;" class="btn btn-warning" href="#">Learn more &raquo;</a></p>
             </div>
         </div>
     </div>

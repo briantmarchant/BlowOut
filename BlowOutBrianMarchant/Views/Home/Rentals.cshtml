@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BlowOutBrianMarchant.Models.Instrument>
+
+@{
+    ViewBag.Title = "Rentals";
+}
+
+<div class="container clearfix">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Rentals</h2>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            string instrumentImage = "/Content/Images/" + item.InstrumentDescription + ".jpg";
+            if (item.InstrumentCondition == "New")
+            {
+                <div class="col-md-4 instrumentType">
+                    <a href="@Url.Action("Create", "Home", new { id = item.InstrumentID }, null)" class="btn btn-default center-block">
+                        @Html.DisplayFor(modelItem => item.InstrumentCondition)
+                        @Html.DisplayFor(modelItem => item.InstrumentDescription)
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="text-center">@item.InstrumentDescription</h3>
+                    <img id="instrumentImage" class="img-responsive" src="@instrumentImage" />
+                </div>
+             
+            }
+            else if (item.InstrumentCondition == "Used")
+            {
+                <div class="col-md-4 instrumentType">
+                    <a href="@Url.Action("Create", "Home", new { id = item.InstrumentID }, null)" class="btn btn-default center-block">
+                        @Html.DisplayFor(modelItem => item.InstrumentCondition)
+                        @Html.DisplayFor(modelItem => item.InstrumentDescription)
+                    </a>
+                </div>
+             
+            }
+            if(item.InstrumentCondition == "Used")
+            { 
+                <div class="col-md-12">
+                    <hr />
+                </div>
+            }
+        }
+    </div>
+</div>

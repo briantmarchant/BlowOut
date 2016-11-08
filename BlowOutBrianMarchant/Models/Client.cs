@@ -36,8 +36,8 @@ namespace BlowOutBrianMarchant.Models
 
         [Required(ErrorMessage = "Please enter a state")]
         [DisplayName("State")]
-        [StringLength(14, MinimumLength = 2, ErrorMessage = "Must be between 2 and 30 characters")]
-        public string ClientState { get; set; }
+        [StringLength(2, MinimumLength = 2, ErrorMessage = "Please select a state")]
+        public string ClientStateID { get; set; }
 
         [Required(ErrorMessage = "Please enter a zip code")]
         [DisplayName("Zip Code")]
@@ -52,7 +52,7 @@ namespace BlowOutBrianMarchant.Models
 
         [Required(ErrorMessage = "Please enter a phone number")]
         [DisplayName("Phone Number")]
-        [RegularExpression ("((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}")]
+        [RegularExpression ("/^(d{3}) d{3}-d{4}$/", ErrorMessage = "Phone number needs to be in this format (XXX) XXX-XXXX")]
         public string ClientPhone { get; set; }
     }
 }
