@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BlowOutBrianMarchant.DAL;
 using BlowOutBrianMarchant.Models;
+using System.Web.Security;
 
 namespace BlowOutBrianMarchant.Controllers
 {
@@ -77,6 +78,38 @@ namespace BlowOutBrianMarchant.Controllers
             ViewBag.Client = client;
             ViewBag.Instrument = instrument;
             ViewBag.TotalRental = instrument.InstrumentPrice * 18;
+            return View();
+        }
+
+        // GET: Home
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        {
+            String username = form["Username"].ToString();
+            String password = form["Password"].ToString();
+
+            if (string.Equals(username, "Missouri") && (string.Equals(password, "ShowMe")))
+            {
+                FormsAuthentication.SetAuthCookie(username, rememberMe);
+
+                return RedirectToAction("UpdateData", "Home");
+
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [Authorize]
+        public ActionResult UpdateData()
+        {
             return View();
         }
     }
